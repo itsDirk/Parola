@@ -68,7 +68,7 @@ public class Quiz {
         return response;
 	}
 
-	public ArrayList<Character> getAvailableLetters() {
+	public ArrayList<Character> getVerzameldeLetters() {
 		return this.verzameldeLetters;
 	}
 

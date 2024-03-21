@@ -38,22 +38,26 @@ public class Parola {
 
             geefStartSchermWeer(aantalCredits, quizPrijs);
 
-            while(huidigeVraag <= 8){
+            while (huidigeVraag <= 7) {
                 naarVolgendeVraag(q, huidigeVraag);
                 beantwoordVraag(q, huidigeVraag);
-
-
                 huidigeVraag++;
             }
+            haalLettersOp(q);
 
+            if (q.getVerzameldeLetters().size() < 2) {
+                System.out.println("Je hebt niet genoeg letters verzameld om een woord te vormen!");
+            } else {
+                boolean woordIsCorrect = false;
+                while (!woordIsCorrect) {
+                    System.out.println("Vorm een woord met de letters die je hebt verzameld: ");
+                    String woord = scanner.nextLine();
+                    woordIsCorrect = q.valideerWoord(woord);
+                }
+            }
 
-
-//            naarVolgendeVraag();
-//            beantwoordVraag();
-//
-//            vormWoord();
-//            scoreWeergeven();
-//            haalLettersOp();
+            ScoreTellingZonderTijd scoreTelling = new ScoreTellingZonderTijd(10, 5, 5);
+            scoreWeergeven(q, scoreTelling);
         } else {
             geefNietGenoegCreditsWeer(aantalCredits, quizPrijs);
         }
@@ -88,16 +92,17 @@ public class Parola {
         q.beantwoordVraag(antwoord, huidigeVraag);
     }
 
+    private void haalLettersOp(Quiz q) {
+        ArrayList<Character> letters = q.getVerzameldeLetters();
+        System.out.println("De letters die je hebt verzameld zijn: " + letters);
+    }
+
     private void vormWoord() {
 
     }
 
-    private void scoreWeergeven() {
-
-    }
-
-    private void haalLettersOp() {
-
+    private void scoreWeergeven(Quiz q, ScoreTellingZonderTijd scoreTelling) {
+        q.berekenScore(scoreTelling);
     }
 
 }
