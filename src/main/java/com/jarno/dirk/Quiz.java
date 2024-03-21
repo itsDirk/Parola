@@ -75,7 +75,7 @@ public class Quiz {
     public boolean valideerWoord(String woord) {
         ArrayList<Character> verzameldeLettersClone = new ArrayList<>(verzameldeLetters);
         for (int i = 0; i < woord.length(); i++) {
-            char letter = woord.charAt(i);
+            Character letter = woord.charAt(i);
             if (verzameldeLettersClone.contains(letter)) {
                 verzameldeLettersClone.remove(Character.valueOf(letter));
             } else {
