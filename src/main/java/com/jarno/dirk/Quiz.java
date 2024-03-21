@@ -73,7 +73,7 @@ public class Quiz {
 	}
 
 	public boolean valideerWoord(String woord) {
-        
+        return true;
 	}
 
 	public void startTijd() {
