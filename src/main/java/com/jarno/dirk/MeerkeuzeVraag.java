@@ -26,7 +26,7 @@ public class MeerkeuzeVraag implements IVraag {
 		var stelling = "Deze vraag is van thema: " + thema.getThema() + "\n" +
                 this.stelling + "\n 1: " + correctAntwoord.getAntwoord();
         for (int i = 2; i<fouteAntwoorden.size()+2;i++){
-            stelling.concat("\n" + i + ": " + fouteAntwoorden.get(i-2).getAntwoord());
+            stelling = stelling.concat("\n" + i + ": " + fouteAntwoorden.get(i-2).getAntwoord());
 
         }
         return stelling;
