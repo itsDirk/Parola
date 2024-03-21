@@ -61,9 +61,9 @@ public class Quiz {
         if(isCorrect){
             var letter = vraag.getLetter();
             verzameldeLetters.add(letter);
-            response.concat("Goed \n" + "U heeft deze letter verdiend: " + letter);
+            response = response.concat("Goed \n" + "U heeft deze letter verdiend: " + letter);
         }else{
-            response.concat("Fout \n" + "Het goede antwoord is: " + vraag.getCorrectAntwoord());
+            response = response.concat("Fout \n" + "Het goede antwoord is: " + vraag.getCorrectAntwoord());
         }
         return response;
 	}
