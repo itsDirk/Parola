@@ -11,11 +11,11 @@ public class Parola {
 
     private Speler speler;
 
-    public Parola() {
+    public Parola(ArrayList<Quiz> quizzen, Speler speler) {
 //        this.scanner = new Scanner(System.in);
-//        this.quizzen = new ArrayList<>();
+        this.quizzen = quizzen;
 //        this.quiz = new Quiz[5];
-        this.speler = new Speler("Parolaspeler123", "Parola123", 1000);
+        this.speler = speler;
         this.scanner = new Scanner(System.in);
     }
 

@@ -10,7 +10,8 @@ public class KortAntwoordVraag implements IVraag {
 
 	private ArrayList<GoedAntwoordKAVraag> correcteAntwoorden;
 
-    KortAntwoordVraag(ArrayList<GoedAntwoordKAVraag> correcteAntwoorden){
+    KortAntwoordVraag(String stelling, ArrayList<GoedAntwoordKAVraag> correcteAntwoorden){
+		this.stelling = stelling;
         this.correcteAntwoorden = correcteAntwoorden;
 
     }
