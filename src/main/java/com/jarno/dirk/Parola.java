@@ -41,6 +41,7 @@ public class Parola {
             while (huidigeVraag <= 7) {
                 naarVolgendeVraag(q, huidigeVraag);
                 beantwoordVraag(q, huidigeVraag);
+
                 huidigeVraag++;
             }
             q.stopTijd();
@@ -90,7 +91,7 @@ public class Parola {
 
     private void beantwoordVraag(Quiz q, int huidigeVraag) {
         String antwoord = scanner.nextLine();
-        q.beantwoordVraag(antwoord, huidigeVraag);
+        System.out.println(q.beantwoordVraag(antwoord, huidigeVraag));
     }
 
     private void haalLettersOp(Quiz q) {
