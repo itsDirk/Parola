@@ -11,8 +11,5 @@ public class FoutAntwoordMKVraag {
 		return antwoord;
 	}
 
-	public String getCorrectAntwoord(){
-		return antwoord;
-	};
 
 }

@@ -25,7 +25,7 @@ public class KortAntwoordVraag implements IVraag {
 	}
 
 	public String getStelling() {
-		return stelling;
+		return "Deze vraag is van thema: " + thema.getThema() + "\n" + stelling;
 	}
 
 	public String getCorrectAntwoord() {

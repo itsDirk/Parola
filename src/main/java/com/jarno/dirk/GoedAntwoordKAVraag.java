@@ -12,8 +12,5 @@ public class GoedAntwoordKAVraag {
 		return antwoord;
 	}
 
-	public String getCorrectAntwoord() {
-		return antwoord;
-	}
 
 }

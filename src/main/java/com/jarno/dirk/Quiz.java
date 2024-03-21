@@ -60,6 +60,7 @@ public class Quiz {
 	}
 
 	public String beantwoordVraag(String antwoord, int index) {
+        var isCorrect = valideerWoord(antwoord, index);
         var vraag = vragen.get(index);
 		if(vraag.valideerAntwoord(antwoord)){
             return String.valueOf(vraag.getLetter());
@@ -72,8 +73,8 @@ public class Quiz {
 		return this.verzameldeLetters;
 	}
 
-	public boolean valideerWoord(String woord) {
-		return false;
+	public boolean valideerWoord(String woord, int index) {
+		return vragen.get(index).valideerAntwoord(woord);
 	}
 
 	public void startTijd() {
