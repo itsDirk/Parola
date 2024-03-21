@@ -71,7 +71,7 @@ public class Quiz {
 	public ArrayList<Character> getAvailableLetters() {
 		return this.verzameldeLetters;
 	}
-
+    
     public boolean valideerWoord(String woord) {
         ArrayList<Character> verzameldeLettersClone = new ArrayList<>(verzameldeLetters);
         for (int i = 0; i < woord.length(); i++) {

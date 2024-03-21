@@ -14,14 +14,13 @@ public class Parola {
 
     public Parola(ArrayList<Quiz> quizzen, Speler speler) {
         this.quizzen = quizzen;
-//        this.quiz = new Quiz[5];
         this.speler = speler;
         this.scanner = new Scanner(System.in);
     }
 
     public void speelQuiz() {
         System.out.println("Welkom bij Parola! Druk op enter om automatisch een quiz te selecteren...");
-        this.scanner.nextLine();
+        scanner.nextLine();
 
         Quiz q = this.kiesQuiz();
         int aantalCredits = speler.getCredits();
@@ -29,16 +28,35 @@ public class Parola {
         boolean spelerHeeftGenoegCredits = spelerHeeftGenoegCredits(aantalCredits, quizPrijs);
 
         if (spelerHeeftGenoegCredits) {
+            int huidigeVraag = 0;
+
             speler.lowerCredits(quizPrijs);
             aantalCredits = speler.getCredits();
-            this.geefStartSchermWeer(aantalCredits, quizPrijs);
-            this.vormWoord();
-            this.scoreWeergeven();
-            this.naarVolgendeVraag();
-            this.beantwoordVraag();
-            this.haalLettersOp();
+
+            q.resetQuiz();
+            q.startTijd();
+
+            geefStartSchermWeer(aantalCredits, quizPrijs);
+
+            while(huidigeVraag <= 8){
+                String stelling = q.getStelling(huidigeVraag);
+                System.out.println(stelling);
+                String antwoord = scanner.nextLine();
+                q.beantwoordVraag(antwoord, huidigeVraag);
+
+
+                huidigeVraag++;
+            }
+
+
+            naarVolgendeVraag();
+            beantwoordVraag();
+
+            vormWoord();
+            scoreWeergeven();
+            haalLettersOp();
         } else {
-            this.geefNietGenoegCreditsWeer(aantalCredits, quizPrijs);
+            geefNietGenoegCreditsWeer(aantalCredits, quizPrijs);
         }
 
     }
@@ -54,10 +72,18 @@ public class Parola {
     }
 
     private void geefStartSchermWeer(int aantalCredits, int quizPrijs) {
-        System.out.println("Betaalde " + quizPrijs + " credits voor de quiz. Je hebt nog " + aantalCredits + " credits over.");
+        System.out.println("Betaalde " + quizPrijs + " credits voor de quiz. Je hebt nog " + aantalCredits + " credits over.Veel succes!");
     }
 
     private void geefNietGenoegCreditsWeer(int aantalCredits, int quizPrijs) {
+        System.out.println("Je hebt niet genoeg credits om deze quiz te spelen. Je hebt " + aantalCredits + " credits, maar de quiz kost " + quizPrijs + " credits.");
+    }
+
+    private void naarVolgendeVraag() {
+
+    }
+
+    private void beantwoordVraag() {
 
     }
 
@@ -66,14 +92,6 @@ public class Parola {
     }
 
     private void scoreWeergeven() {
-
-    }
-
-    private void naarVolgendeVraag() {
-
-    }
-
-    private void beantwoordVraag() {
 
     }
 
