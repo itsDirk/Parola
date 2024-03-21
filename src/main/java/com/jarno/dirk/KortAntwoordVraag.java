@@ -10,26 +10,30 @@ public class KortAntwoordVraag implements IVraag {
 
 	private ArrayList<GoedAntwoordKAVraag> correcteAntwoorden;
 
-	private GoedAntwoordKAVraag[] goedAntwoordKAVraag;
+    KortAntwoordVraag(ArrayList<GoedAntwoordKAVraag> correcteAntwoorden){
+        this.correcteAntwoorden = correcteAntwoorden;
+
+    }
 
 	public boolean valideerAntwoord(String antwoord) {
-		return false;
+        for (GoedAntwoordKAVraag goedAntwoord : correcteAntwoorden) {
+            if (goedAntwoord.getAntwoord().equals(antwoord)) {
+                return true;
+            }
+        }
+        return false;
 	}
 
 	public String getStelling() {
-		return null;
+		return stelling;
 	}
 
 	public String getCorrectAntwoord() {
-		return null;
+		return correcteAntwoorden.toString();
 	}
 
-
-	/**
-	 * @see Design Class Diagram Parola.Vraag#getLetter()
-	 */
 	public char getLetter() {
-		return 0;
+		return letter;
 	}
 
 }

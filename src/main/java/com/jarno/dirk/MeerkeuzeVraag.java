@@ -7,25 +7,26 @@ public class MeerkeuzeVraag implements IVraag {
 	private String stelling;
 
 	private char letter;
-
 	private GoedAntwoordMKVraag correctAntwoord;
 
 	private ArrayList<FoutAntwoordMKVraag> fouteAntwoorden;
 
-	private GoedAntwoordMKVraag goedAntwoordMKVraag;
-
-	private FoutAntwoordMKVraag[] foutAntwoordMKVraag;
+    MeerkeuzeVraag(GoedAntwoordMKVraag correctAntwoord,ArrayList<FoutAntwoordMKVraag> fouteAntwoorden){
+        this.correctAntwoord = correctAntwoord;
+        this.fouteAntwoorden = fouteAntwoorden;
+    }
 
 	public boolean valideerAntwoord(String antwoord) {
 		return false;
 	}
 
+    //TODO stelling en vragen samenvoegen in een mooie string
 	public String getStelling() {
-		return null;
+		return stelling + correctAntwoord.getAntwoord() + fouteAntwoorden.stream().iterator().next().getAntwoord();
 	}
 
 	public String getCorrectAntwoord() {
-		return null;
+		return correctAntwoord.getCorrectAntwoord() ;
 	}
 
 
@@ -33,7 +34,7 @@ public class MeerkeuzeVraag implements IVraag {
 	 * @see Design Class Diagram Parola.Vraag#getLetter()
 	 */
 	public char getLetter() {
-		return 0;
+		return letter;
 	}
 
 }

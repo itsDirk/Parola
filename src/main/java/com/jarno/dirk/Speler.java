@@ -7,15 +7,18 @@ public class Speler {
 	private String wachtwoord;
 
 	private int credtis;
-
-	private Parola parola;
+    Speler(String gebruikersNaam, String wachtwoord, int credtis){
+        this.gebruikersNaam = gebruikersNaam;
+        this.wachtwoord = wachtwoord;
+        this.credtis = credtis;
+    }
 
 	public int getCredits() {
-		return 0;
+		return credtis;
 	}
 
 	public void lowerCredits(int amount) {
-
+        this.credtis = this.credtis - amount;
 	}
 
 }

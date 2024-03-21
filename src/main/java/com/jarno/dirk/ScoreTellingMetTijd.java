@@ -8,8 +8,21 @@ public class ScoreTellingMetTijd implements IScoreTelling {
 
 	private int puntenSnelheidsBonus;
 
+    ScoreTellingMetTijd(int puntenPerCorrectAntwoord,int puntenPerLetterInWoord , int puntenSnelheidsBonus){
+        this.puntenPerCorrectAntwoord = puntenPerCorrectAntwoord;
+        this.puntenPerLetterInWoord = puntenPerLetterInWoord;
+        this.puntenSnelheidsBonus = puntenSnelheidsBonus;
+    }
+
 	public int berekenScore(int startTijd, int eindTijd, int correctBeantwoorddeVragen, String woord) {
-		return 0;
+        return puntenPerCorrectAntwoord * correctBeantwoorddeVragen + (puntenPerLetterInWoord * woord.length()) + getPuntenVanTijd(startTijd, eindTijd);
 	}
+
+    public int getPuntenVanTijd(int startTijd, int eindTijd){
+        var duur = eindTijd - startTijd;
+        var duurInMin = duur/60;
+        //TODO punten teruggeven bij een bepaalde duur
+        return 1;
+    }
 
 }

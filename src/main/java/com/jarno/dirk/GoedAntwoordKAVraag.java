@@ -4,12 +4,16 @@ public class GoedAntwoordKAVraag {
 
 	private String antwoord;
 
+    GoedAntwoordKAVraag(String antwoord){
+        this.antwoord = antwoord;
+    }
+
 	public String getAntwoord() {
-		return null;
+		return antwoord;
 	}
 
 	public String getCorrectAntwoord() {
-		return null;
+		return antwoord;
 	}
 
 }

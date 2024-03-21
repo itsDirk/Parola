@@ -16,36 +16,60 @@ public class Quiz {
 
 	private int correctBeantwoorddeVragen;
 
-	private char[] verzameldeLetters;
+	private ArrayList<Character> verzameldeLetters;//TODO van char[] naar arraylist
 
 	private int quizPrijs;
 
 	private IScoreTelling scoreTelling;
 
-	private IVraag[] vraag;
+	private IVraag[] vraag;//TODO dubbel
+
+    Quiz(ArrayList<IVraag> vragen, int quizPrijs){
+        startTijd = 0;
+        eindTijd = 0;
+        aantalKeerGespeeld = 0;
+        this.vragen = vragen;
+        correctBeantwoorddeVragen = 0;
+        verzameldeLetters = new ArrayList<>();
+        this.quizPrijs = quizPrijs;
+        //TODO scoretelling?
+
+    }
+
+
 
 	public void resetQuiz() {
-
+        this.startTijd = 0;
+        this.eindTijd = 0;
+        this.verzameldeLetters.clear();
+        this.woord = null;
+        this.correctBeantwoorddeVragen = 0;
 	}
 
 	public int getQuizPrijs() {
-		return 0;
+		return this.quizPrijs;
 	}
 
 	public int berekenScore(IScoreTelling scoreTelling) {
-		return 0;
+        this.aantalKeerGespeeld++;
+		return scoreTelling.berekenScore(this.startTijd,this.eindTijd,this.correctBeantwoorddeVragen,this.woord);
 	}
 
 	public String getStelling(int index) {
-		return null;
+		return vragen.get(index).getStelling();
 	}
 
 	public String beantwoordVraag(String antwoord, int index) {
-		return null;
+        var vraag = vragen.get(index);
+		if(vraag.valideerAntwoord(antwoord)){
+            return String.valueOf(vraag.getLetter());
+        }else{
+            return vraag.getCorrectAntwoord();
+        }
 	}
 
-	public char[] getAvailableLetters() {
-		return null;
+	public ArrayList<Character> getAvailableLetters() {//TODO char[] -> arraylist
+		return this.verzameldeLetters;
 	}
 
 	public boolean valideerWoord(String woord) {
@@ -53,11 +77,11 @@ public class Quiz {
 	}
 
 	public void startTijd() {
-
+        this.startTijd = Math.toIntExact(System.currentTimeMillis()/1000);
 	}
 
 	public void stopTijd() {
-
+        this.eindTijd = Math.toIntExact(System.currentTimeMillis()/1000);
 	}
 
 }

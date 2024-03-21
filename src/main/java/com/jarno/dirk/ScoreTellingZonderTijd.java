@@ -8,8 +8,15 @@ public class ScoreTellingZonderTijd implements IScoreTelling {
 
 	private int puntenSnelheidsBonus;
 
+    ScoreTellingZonderTijd(int puntenPerCorrectAntwoord,int puntenPerLetterInWoord , int puntenSnelheidsBonus){
+        this.puntenPerCorrectAntwoord = puntenPerCorrectAntwoord;
+        this.puntenPerLetterInWoord = puntenPerLetterInWoord;
+        this.puntenSnelheidsBonus = puntenSnelheidsBonus;
+    }
+
 	public int berekenScore(int startTijd, int eindTijd, int correctBeantwoorddeVragen, String woord) {
-		return 0;
+		return puntenPerCorrectAntwoord * correctBeantwoorddeVragen + (puntenPerLetterInWoord * woord.length());
+
 	}
 
 }
