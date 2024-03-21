@@ -6,19 +6,19 @@ public class Speler {
 
 	private String wachtwoord;
 
-	private int credtis;
-    Speler(String gebruikersNaam, String wachtwoord, int credtis){
+	private int credits;
+    Speler(String gebruikersNaam, String wachtwoord, int credits){
         this.gebruikersNaam = gebruikersNaam;
         this.wachtwoord = wachtwoord;
-        this.credtis = credtis;
+        this.credits = credits;
     }
 
 	public int getCredits() {
-		return credtis;
+		return credits;
 	}
 
 	public void lowerCredits(int amount) {
-        this.credtis = this.credtis - amount;
+        this.credits = this.credits - amount;
 	}
 
 }

@@ -16,13 +16,11 @@ public class Quiz {
 
 	private int correctBeantwoorddeVragen;
 
-	private ArrayList<Character> verzameldeLetters;//TODO van char[] naar arraylist
+	private ArrayList<Character> verzameldeLetters;
 
 	private int quizPrijs;
 
 	private IScoreTelling scoreTelling;
-
-	private IVraag[] vraag;//TODO dubbel
 
     Quiz(ArrayList<IVraag> vragen, int quizPrijs){
         startTijd = 0;
@@ -32,11 +30,8 @@ public class Quiz {
         correctBeantwoorddeVragen = 0;
         verzameldeLetters = new ArrayList<>();
         this.quizPrijs = quizPrijs;
-        //TODO scoretelling?
 
     }
-
-
 
 	public void resetQuiz() {
         this.startTijd = 0;
@@ -60,21 +55,25 @@ public class Quiz {
 	}
 
 	public String beantwoordVraag(String antwoord, int index) {
-        var isCorrect = valideerWoord(antwoord, index);
         var vraag = vragen.get(index);
-		if(vraag.valideerAntwoord(antwoord)){
-            return String.valueOf(vraag.getLetter());
+        var isCorrect = vraag.valideerAntwoord(antwoord);;
+        String response = "U heeft het antwoord ";
+        if(isCorrect){
+            var letter = vraag.getLetter();
+            verzameldeLetters.add(letter);
+            response.concat("Goed \n" + "U heeft deze letter verdiend: " + letter);
         }else{
-            return vraag.getCorrectAntwoord();
+            response.concat("Fout \n" + "Het goede antwoord is: " + vraag.getCorrectAntwoord());
         }
+        return response;
 	}
 
-	public ArrayList<Character> getAvailableLetters() {//TODO char[] -> arraylist
+	public ArrayList<Character> getAvailableLetters() {
 		return this.verzameldeLetters;
 	}
 
-	public boolean valideerWoord(String woord, int index) {
-		return vragen.get(index).valideerAntwoord(woord);
+	public boolean valideerWoord(String woord) {
+        
 	}
 
 	public void startTijd() {

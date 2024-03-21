@@ -18,7 +18,7 @@ public class KortAntwoordVraag implements IVraag {
 
 	public boolean valideerAntwoord(String antwoord) {
         for (GoedAntwoordKAVraag goedAntwoord : correcteAntwoorden) {
-            if (goedAntwoord.getAntwoord().equals(antwoord)) {
+            if (goedAntwoord.getAntwoord().toLowerCase().equals(antwoord.toLowerCase())) {
                 return true;
             }
         }
@@ -30,7 +30,7 @@ public class KortAntwoordVraag implements IVraag {
 	}
 
 	public String getCorrectAntwoord() {
-		return correcteAntwoorden.toString();
+		return correcteAntwoorden.get(0).toString();
 	}
 
 	public char getLetter() {

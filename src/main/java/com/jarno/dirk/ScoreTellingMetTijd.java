@@ -19,10 +19,7 @@ public class ScoreTellingMetTijd implements IScoreTelling {
 	}
 
     public int getPuntenVanTijd(int startTijd, int eindTijd){
-        var duur = eindTijd - startTijd;
-        var duurInMin = duur/60;
-        //TODO punten teruggeven bij een bepaalde duur
-        return 1;
+        return puntenSnelheidsBonus - (eindTijd - startTijd);
     }
 
 }
