@@ -39,22 +39,21 @@ public class Parola {
             geefStartSchermWeer(aantalCredits, quizPrijs);
 
             while(huidigeVraag <= 8){
-                String stelling = q.getStelling(huidigeVraag);
-                System.out.println(stelling);
-                String antwoord = scanner.nextLine();
-                q.beantwoordVraag(antwoord, huidigeVraag);
+                naarVolgendeVraag(q, huidigeVraag);
+                beantwoordVraag(q, huidigeVraag);
 
 
                 huidigeVraag++;
             }
 
 
-            naarVolgendeVraag();
-            beantwoordVraag();
 
-            vormWoord();
-            scoreWeergeven();
-            haalLettersOp();
+//            naarVolgendeVraag();
+//            beantwoordVraag();
+//
+//            vormWoord();
+//            scoreWeergeven();
+//            haalLettersOp();
         } else {
             geefNietGenoegCreditsWeer(aantalCredits, quizPrijs);
         }
@@ -72,19 +71,21 @@ public class Parola {
     }
 
     private void geefStartSchermWeer(int aantalCredits, int quizPrijs) {
-        System.out.println("Betaalde " + quizPrijs + " credits voor de quiz. Je hebt nog " + aantalCredits + " credits over.Veel succes!");
+        System.out.println("Betaalde " + quizPrijs + " credits voor de quiz. Je hebt nog " + aantalCredits + " credits over. Veel succes!");
     }
 
     private void geefNietGenoegCreditsWeer(int aantalCredits, int quizPrijs) {
         System.out.println("Je hebt niet genoeg credits om deze quiz te spelen. Je hebt " + aantalCredits + " credits, maar de quiz kost " + quizPrijs + " credits.");
     }
 
-    private void naarVolgendeVraag() {
-
+    private void naarVolgendeVraag(Quiz q, int huidigeVraag) {
+        String stelling = q.getStelling(huidigeVraag);
+        System.out.println("\n" + stelling);
     }
 
-    private void beantwoordVraag() {
-
+    private void beantwoordVraag(Quiz q, int huidigeVraag) {
+        String antwoord = scanner.nextLine();
+        q.beantwoordVraag(antwoord, huidigeVraag);
     }
 
     private void vormWoord() {
