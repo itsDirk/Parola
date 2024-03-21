@@ -30,7 +30,7 @@ public class KortAntwoordVraag implements IVraag {
 	}
 
 	public String getCorrectAntwoord() {
-		return correcteAntwoorden.get(0).toString();
+		return correcteAntwoorden.get(0).getAntwoord();
 	}
 
 	public char getLetter() {
