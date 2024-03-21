@@ -1,53 +1,80 @@
 package com.jarno.dirk;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Parola {
 
-	private ArrayList<Quiz> quizzen;
+    private Scanner scanner;
 
-	private Quiz[] quiz;
+    private ArrayList<Quiz> quizzen;
 
-	private Speler speler;
+    private Speler speler;
 
-	public void speelQuiz() {
+    public Parola() {
+//        this.scanner = new Scanner(System.in);
+//        this.quizzen = new ArrayList<>();
+//        this.quiz = new Quiz[5];
+        this.speler = new Speler("Parolaspeler123", "Parola123", 1000);
+        this.scanner = new Scanner(System.in);
+    }
 
-	}
+    public void speelQuiz() {
+        System.out.println("Welkom bij Parola! Druk op enter om automatisch een quiz te selecteren...");
+        this.scanner.nextLine();
 
-	private Quiz kiesQuiz() {
-		return null;
-	}
+        Quiz q = this.kiesQuiz();
+        int aantalCredits = speler.getCredits();
+        int quizPrijs = q.getQuizPrijs();
+        boolean spelerHeeftGenoegCredits = spelerHeeftGenoegCredits(aantalCredits, quizPrijs);
 
-	private boolean spelerHeeftGenoegCredits(int credits, int quizPrijs) {
-		return false;
-	}
+        if (spelerHeeftGenoegCredits) {
+            this.geefStartSchermWeer(aantalCredits, quizPrijs);
+            this.vormWoord();
+            this.scoreWeergeven();
+            this.naarVolgendeVraag();
+            this.beantwoordVraag();
+            this.haalLettersOp();
+        } else {
+            this.geefNietGenoegCreditsWeer(aantalCredits, quizPrijs);
+        }
 
-	private void geefStartSchermWeer(int aantalCredits, int quizPrijs) {
+    }
 
-	}
+    private Quiz kiesQuiz() {
+        return null;
+    }
 
-	private void geefNietGenoegCreditsWeer(int aantalCredits, int quizPrijs) {
+    private boolean spelerHeeftGenoegCredits(int credits, int quizPrijs) {
+        return false;
+    }
 
-	}
+    private void geefStartSchermWeer(int aantalCredits, int quizPrijs) {
 
-	private void vormWoord() {
+    }
 
-	}
+    private void geefNietGenoegCreditsWeer(int aantalCredits, int quizPrijs) {
 
-	private void scoreWeergeven() {
+    }
 
-	}
+    private void vormWoord() {
 
-	private void naarVolgendeVraag() {
+    }
 
-	}
+    private void scoreWeergeven() {
 
-	private void beantwoordVraag() {
+    }
 
-	}
+    private void naarVolgendeVraag() {
 
-	private void haalLettersOp() {
+    }
 
-	}
+    private void beantwoordVraag() {
+
+    }
+
+    private void haalLettersOp() {
+
+    }
 
 }

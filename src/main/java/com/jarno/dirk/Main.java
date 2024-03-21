@@ -2,6 +2,7 @@ package com.jarno.dirk;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello world!");
+        Parola parola = new Parola();
+        parola.speelQuiz();
     }
 }
