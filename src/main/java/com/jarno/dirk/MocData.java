@@ -30,6 +30,10 @@ public class MocData {
 
         // VRAAG 3
         ArrayList<GoedAntwoordKAVraag> gakav3 = new ArrayList<>();
+        gakav3.add(new GoedAntwoordKAVraag("Instanboel"));
+        gakav3.add(new GoedAntwoordKAVraag("Instanbul"));
+        gakav3.add(new GoedAntwoordKAVraag("instanboel"));
+        gakav3.add(new GoedAntwoordKAVraag("instanbul"));
 
 
 
