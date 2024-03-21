@@ -72,9 +72,18 @@ public class Quiz {
 		return this.verzameldeLetters;
 	}
 
-	public boolean valideerWoord(String woord) {
-        
-	}
+    public boolean valideerWoord(String woord) {
+        ArrayList<Character> verzameldeLettersClone = new ArrayList<>(verzameldeLetters);
+        for (int i = 0; i < woord.length(); i++) {
+            char letter = woord.charAt(i);
+            if (verzameldeLettersClone.contains(letter)) {
+                verzameldeLettersClone.remove(Character.valueOf(letter)); // Remove the letter
+            } else {
+                return false;
+            }
+        }
+        return true;
+    }
 
 	public void startTijd() {
         this.startTijd = Math.toIntExact(System.currentTimeMillis()/1000);
