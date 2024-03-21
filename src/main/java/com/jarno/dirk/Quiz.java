@@ -37,7 +37,7 @@ public class Quiz {
         this.startTijd = 0;
         this.eindTijd = 0;
         this.verzameldeLetters.clear();
-        this.woord = null;
+        this.woord = "";
         this.correctBeantwoorddeVragen = 0;
 	}
 

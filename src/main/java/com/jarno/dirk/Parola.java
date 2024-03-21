@@ -43,6 +43,7 @@ public class Parola {
                 beantwoordVraag(q, huidigeVraag);
                 huidigeVraag++;
             }
+            q.stopTijd();
             haalLettersOp(q);
 
             if (q.getVerzameldeLetters().size() < 2) {
