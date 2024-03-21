@@ -77,11 +77,12 @@ public class Quiz {
         for (int i = 0; i < woord.length(); i++) {
             char letter = woord.charAt(i);
             if (verzameldeLettersClone.contains(letter)) {
-                verzameldeLettersClone.remove(Character.valueOf(letter)); // Remove the letter
+                verzameldeLettersClone.remove(Character.valueOf(letter));
             } else {
                 return false;
             }
         }
+        this.woord = woord;
         return true;
     }
 
