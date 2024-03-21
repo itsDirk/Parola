@@ -1,6 +1,7 @@
 package com.jarno.dirk;
 
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.Scanner;
 
 public class Parola {
@@ -12,7 +13,6 @@ public class Parola {
     private Speler speler;
 
     public Parola(ArrayList<Quiz> quizzen, Speler speler) {
-//        this.scanner = new Scanner(System.in);
         this.quizzen = quizzen;
 //        this.quiz = new Quiz[5];
         this.speler = speler;
@@ -29,6 +29,8 @@ public class Parola {
         boolean spelerHeeftGenoegCredits = spelerHeeftGenoegCredits(aantalCredits, quizPrijs);
 
         if (spelerHeeftGenoegCredits) {
+            speler.lowerCredits(quizPrijs);
+            aantalCredits = speler.getCredits();
             this.geefStartSchermWeer(aantalCredits, quizPrijs);
             this.vormWoord();
             this.scoreWeergeven();
@@ -42,15 +44,17 @@ public class Parola {
     }
 
     private Quiz kiesQuiz() {
-        return null;
+        Random random = new Random();
+        int index = random.nextInt(quizzen.size());
+        return quizzen.get(index);
     }
 
     private boolean spelerHeeftGenoegCredits(int credits, int quizPrijs) {
-        return false;
+        return credits >= quizPrijs;
     }
 
     private void geefStartSchermWeer(int aantalCredits, int quizPrijs) {
-
+        System.out.println("Betaalde " + quizPrijs + " credits voor de quiz. Je hebt nog " + aantalCredits + " credits over.");
     }
 
     private void geefNietGenoegCreditsWeer(int aantalCredits, int quizPrijs) {
