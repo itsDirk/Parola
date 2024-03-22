@@ -4,6 +4,8 @@ public class Main {
     public static void main(String[] args) {
         MocData mocData = new MocData();
         Parola parola = new Parola(mocData.getQuizzen(), mocData.getSpeler());
-        parola.speelQuiz();
+        while(true){
+            parola.speelQuiz();
+        }
     }
 }

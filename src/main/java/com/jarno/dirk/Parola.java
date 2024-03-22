@@ -48,7 +48,7 @@ public class Parola {
             haalLettersOp(q);
 
             if (q.getVerzameldeLetters().size() < 2) {
-                System.out.println("Je hebt niet genoeg letters verzameld om een woord te vormen!");
+                System.out.println("Je hebt niet genoeg letters verzameld om een woord te vormen!\n");
             } else {
                 boolean woordIsCorrect = false;
                 while (!woordIsCorrect) {
@@ -58,7 +58,9 @@ public class Parola {
                 }
             }
 
-            ScoreTellingZonderTijd scoreTelling = new ScoreTellingZonderTijd(10, 5, 5);
+
+//            IScoreTelling scoreTelling = new ScoreTellingMetTijd(20, 5, 100);
+            IScoreTelling scoreTelling = new ScoreTellingMetTijd(20, 5, 100);
             scoreWeergeven(q, scoreTelling);
         } else {
             geefNietGenoegCreditsWeer(aantalCredits, quizPrijs);
@@ -67,9 +69,25 @@ public class Parola {
     }
 
     private Quiz kiesQuiz() {
+        if (quizzen.isEmpty()) {
+            return null;
+        }
+
+        int minAantalKeerGespeeld = Integer.MAX_VALUE;
+        for (Quiz quiz : quizzen) {
+            minAantalKeerGespeeld = Math.min(minAantalKeerGespeeld, quiz.getAantalKeerGespeeld());
+        }
+
+        ArrayList<Quiz> minGespeeldeQuizzen = new ArrayList<>();
+        for (Quiz quiz : quizzen) {
+            if (quiz.getAantalKeerGespeeld() == minAantalKeerGespeeld) {
+                minGespeeldeQuizzen.add(quiz);
+            }
+        }
+
         Random random = new Random();
-        int index = random.nextInt(quizzen.size());
-        return quizzen.get(index);
+        int randomIndex = random.nextInt(minGespeeldeQuizzen.size());
+        return minGespeeldeQuizzen.get(randomIndex);
     }
 
     private boolean spelerHeeftGenoegCredits(int credits, int quizPrijs) {
@@ -103,8 +121,8 @@ public class Parola {
 
     }
 
-    private void scoreWeergeven(Quiz q, ScoreTellingZonderTijd scoreTelling) {
-        q.berekenScore(scoreTelling);
+    private void scoreWeergeven(Quiz q, IScoreTelling scoreTelling) {
+        System.out.println("Jouw uiteindelijke score is " + q.berekenScore(scoreTelling) + " punten!\n");
     }
 
 }

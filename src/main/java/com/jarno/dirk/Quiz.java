@@ -45,6 +45,10 @@ public class Quiz {
 		return this.quizPrijs;
 	}
 
+    public int getAantalKeerGespeeld() {
+        return this.aantalKeerGespeeld;
+    }
+
 	public int berekenScore(IScoreTelling scoreTelling) {
         this.aantalKeerGespeeld++;
 		return scoreTelling.berekenScore(this.startTijd,this.eindTijd,this.correctBeantwoorddeVragen,this.woord);
@@ -73,10 +77,12 @@ public class Quiz {
 	}
 
     public boolean valideerWoord(String woord) {
+        woord = woord.toUpperCase();
+
         ArrayList<Character> verzameldeLettersClone = new ArrayList<>(verzameldeLetters);
         for (int i = 0; i < woord.length(); i++) {
             Character letter = woord.charAt(i);
-            if (verzameldeLettersClone.contains(letter)) {
+            if (verzameldeLettersClone.contains(letter)){
                 verzameldeLettersClone.remove(Character.valueOf(letter));
             } else {
                 return false;
@@ -85,6 +91,7 @@ public class Quiz {
         this.woord = woord;
         return true;
     }
+
 
 	public void startTijd() {
         this.startTijd = Math.toIntExact(System.currentTimeMillis()/1000);
