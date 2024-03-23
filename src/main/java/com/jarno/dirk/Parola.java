@@ -1,6 +1,7 @@
 package com.jarno.dirk;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -78,7 +79,8 @@ public class Parola {
             minAantalKeerGespeeld = Math.min(minAantalKeerGespeeld, quiz.getAantalKeerGespeeld());
         }
 
-        ArrayList<Quiz> minGespeeldeQuizzen = new ArrayList<>();
+        // TODO Pas types aan :)
+        List<Quiz> minGespeeldeQuizzen = new ArrayList<>();
         for (Quiz quiz : quizzen) {
             if (quiz.getAantalKeerGespeeld() == minAantalKeerGespeeld) {
                 minGespeeldeQuizzen.add(quiz);
