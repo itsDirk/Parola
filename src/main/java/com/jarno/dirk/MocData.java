@@ -105,6 +105,7 @@ public class MocData {
         // VRAAG 1
         ArrayList<GoedAntwoordKAVraag> gakav9 = new ArrayList<>();
         gakav9.add(new GoedAntwoordKAVraag("Parijs"));
+        gakav9.add(new GoedAntwoordKAVraag("Paris"));
 
         KortAntwoordVraag kav9 = new KortAntwoordVraag("Wat is de hoofdstad van Frankrijk?", 'P', gakav9, themaGeografie);
         vragenQuiz2.add(kav9);
@@ -112,6 +113,7 @@ public class MocData {
         // VRAAG 2
         ArrayList<GoedAntwoordKAVraag> gakav10 = new ArrayList<>();
         gakav10.add(new GoedAntwoordKAVraag("Berlijn"));
+        gakav10.add(new GoedAntwoordKAVraag("Berlin"));
 
         KortAntwoordVraag kav10 = new KortAntwoordVraag("Wat is de hoofdstad van Duitsland?", 'B', gakav10, themaGeografie);
         vragenQuiz2.add(kav10);

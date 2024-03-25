@@ -19,7 +19,7 @@ public class ScoreTellingMetTijd implements IScoreTelling {
     }
 
     public int getPuntenVanTijd(int startTijd, int eindTijd) {
-        return puntenSnelheidsBonus - (eindTijd - startTijd);
+        return Math.max(puntenSnelheidsBonus - (eindTijd - startTijd), 0);
     }
 
 }
