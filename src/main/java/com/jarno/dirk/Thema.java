@@ -2,13 +2,14 @@ package com.jarno.dirk;
 
 public class Thema {
 
-	private String naam;
+    private String naam;
 
-    Thema(String naam){
+    Thema(String naam) {
         this.naam = naam;
     }
-	public String getThema() {
-		return naam;
-	}
+
+    public String getThema() {
+        return naam;
+    }
 
 }

@@ -4,7 +4,7 @@ public class Main {
     public static void main(String[] args) {
         MocData mocData = new MocData();
         Parola parola = new Parola(mocData.getQuizzen(), mocData.getSpeler());
-        while(true){
+        while (true) {
             parola.speelQuiz();
         }
     }
